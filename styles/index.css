@@ -1,0 +1,88 @@
+#loginCodeContainer {
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 2%;
+    text-align: center;
+    background-color: #04AA6D88;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#loginCodeContainer h3 {
+    font-size: 3vw;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+#loginCodeForm {
+    padding: 3px 0px;
+    background-color: #04AA6D88;
+    border-radius: 5px;
+}
+
+.loginCodeInputs {
+    width: 13%;
+    text-align: center;
+    background-color: #04AA6D88;
+    margin: 5px auto;
+    line-height: 60px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    border-color: #04AA6Dff;
+    border-radius: 4px;
+}
+
+#loginCodeSubmit {
+    margin-top: 10px;
+}
+
+#loginCodeContainer p {
+    font-size: 1.2vw;
+    font-weight: bold;
+    color: #F02;
+}
+
+
+
+#loginAccountContainer {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 2%;
+    text-align: center;
+    background-color: #04AA6D88;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+
+.accountInputs {
+    background-color: #04AA6D88;
+    border-color: #04AA6Dff;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 4px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+#accountLoginErrorPopup {
+    background-color: red;
+    padding: 4px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #fff;
+    margin: 3% 7%;
+}
+
+
+
+
+.button {
+    font-size: 28px;
+    height: auto;
+    font-weight: bold;
+}

@@ -1,0 +1,36 @@
+#accountProfile, #accountEvents{
+    background-color: #04AA6D88;
+    padding: 10px;
+    margin: 10px auto;
+    width: 90%;
+    border-radius: 50px;
+}
+
+#accountProfile h2, #accountEvents h2{
+    margin: 0;
+    text-align: center;
+}
+
+#accountEventList {
+    text-align: center;
+}
+
+#selectEventInformation {
+    width: 50%;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.button {
+    font-size: 22px;
+    height: auto;
+    font-weight: bold;
+}
+
+#createEventInformations {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 10px;
+}

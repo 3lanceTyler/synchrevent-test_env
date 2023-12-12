@@ -1,0 +1,15 @@
+#mainInfoDisplay {
+    padding: 10px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: center;
+    padding: 10px;
+    border: 2px solid black;
+}

@@ -1,0 +1,126 @@
+#setDisplayNameContainer {
+    text-align: center;
+    padding: 10px 20px;
+    width: 80%;
+    margin: 0 auto;
+    background-color: #04AA6D88;
+    border-radius: 20px;
+}
+
+#nameInputContainer input {
+    background-color: #04AA6D88;
+    border-color: #04AA6Dff;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 4px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+#lastInitialInput {
+    width: 30px;
+}
+
+
+
+#titleBarContainer {
+    max-height: 30px;
+}
+
+#eventName {
+    float: left;
+    width: 50%;
+    margin-left: 25%;
+}
+
+#helloUser {
+    float: right;
+    text-align: right;
+    margin-right: 10px;
+    margin-bottom: 0;
+    line-height: 3vw;
+}
+
+
+#mainInfoDisplay {
+    padding: 10px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: center;
+    padding: 10px;
+    border: 2px solid black;
+}
+
+
+
+
+.entryBlockPopup {
+    width: 100%;
+    padding: 3px 10px;
+    background-color: red;
+    margin: 10px 0px;
+}
+
+.entryBlockPopup h1 {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 4vh!important;
+    margin: 0;
+}
+
+.entryBlockPopup p {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 2vh!important;
+    margin: 0;
+}
+
+
+
+
+
+.buttonCont {
+    display: flex;
+    justify-content: space-around;
+}
+
+.hookButton {
+    width: 45%;
+    margin: 0 1%;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    transition-duration: 0.5s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.hookButtonIN {
+    background-color: #04AA6D;
+    border: none;
+    color: #fff;
+}
+
+.hookButtonOUT {
+    background-color: #AA0400;
+    border: none;
+    color: #fff;
+}
+
+
+#informationDisplay {
+    padding: 20px;
+    text-align: center;
+}

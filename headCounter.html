@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synchrevent > Head Counter</title>
+    <link rel="icon" type="image/png" size="16x16" href="favicon.ico.png" />
+
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/headCounter.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+    
+
+</head>
+
+<body>
+    <div id="bodyBG">
+
+
+        <div id="header">
+            <h2 id="stateTagTemp"> <span id="tempStateTag"></span><br><span id="tempStateVer"></span></h2>
+            <h1 id="siteTitle"></h1>
+            <p id="siteQuote"></p>
+        </div>
+
+        <div id="titleBarContainer">
+            <h2 id="eventName"></h2>
+            <p style="font-weight: bold;" id="helloUser"></p>
+        </div>
+
+        <div id="errorPopup" hidden>
+
+            <p id="errorMsg">VAL</p>
+    
+        </div>
+
+
+
+        <div class="spacer"></div>
+
+<div id="setDisplayNameContainer" class="shadow5" hidden>
+    <h2 id="setNameTitle"></h2>
+        <div id="nameInputContainer">
+            <input type="text" id="firstNameInput" placeholder="First Name">
+            <input type="text" id="lastInitialInput" placeholder="init" minlength="1" maxlength="1">
+                <button type="button" class="button shadow3in" id="displayNameSubmit" onclick="submitDisplayName()">Confirm Name</button>
+        </div>
+
+
+</div>
+
+<div id="fullyBody">  
+    <div id="mainInfoDisplay">
+
+
+        <table id="currentCapacitiesTable">
+
+            <tr>
+                <th>Current Adults</th>
+                <th>Current Minors</th>
+                <th>Current WC</th>
+                <th>Current Total</th>
+            </tr>
+
+            <tr>
+                <td id="currentAdults" class="green">VAL</td>
+                <td id="currentMinors" class="green">VAL</td>
+                <td id="currentWc" class="green">VAL</td>
+                <td id="currentTotal" style="font-weight: bold;" class="darkgreen">VAL</td>
+            </tr>
+            
+        </table>
+
+        <p><b>Max Capacity:</b> <span class="red" id="maxCapacity">VAL</span></p>
+    </div>
+
+
+    <div id="ebp1" class="entryBlockPopup" hidden>
+        <h1>!!! ENTRY STOP !!!</h1>
+        <p>Event control has placed a stop on new entries</p>
+    </div>
+
+
+    <div class="buttonCont">
+        <button id="adultINButton" class="hookButton hookButtonIN" type="button" onClick="runHook('adultIN','1', 'adultINButton')" disabled>Adult In</button>
+        <button id="minorINButton" class="hookButton hookButtonIN" type="button" onClick="runHook('minorIN', '1', 'minorINButton')" disabled>Minor In</button>
+        <button id="wcINButton" class="hookButton hookButtonIN" type="button" onClick="runHook('wcIN', '1', 'wcINButton')" disabled>WC In</button>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="buttonCont">
+        <button id="adultOUTButton" class="hookButton hookButtonOUT" type="button" onClick="runHook('adultOUT', '1', 'adultOUTButton')" disabled>Adult Out</button>
+        <button id="minorOUTButton" class="hookButton hookButtonOUT" type="button" onClick="runHook('minorOUT', '1', 'minorOUTButton')" disabled>Minor Out</button>
+        <button id="wcOUTButton" class="hookButton hookButtonOUT" type="button" onClick="runHook('wcOUT', '1', 'wcOUTButton')" disabled>WC Out</button>
+    </div>
+
+    <div id="ebp2" class="entryBlockPopup" hidden>
+        <h1>!!! ENTRY STOP !!!</h1>
+        <p>Event control has placed a stop on new entries</p>
+    </div>
+
+
+    <div class="spacer"></div>
+
+    <div id="informationDisplay">
+        <h1>Extra Information</h1>
+        <p><b>Adults:</b> A total of <b><span class="green" id="adultsTotalIn">VAL</span></b> adults have entered and <b><span class="red" id="adultsTotalOut">VAL</span></b> have left.</p>
+        <p><b>Minors:</b> <b><span class="green" id="minorsTotalIn">VAL</span></b> minors have entered and <b><span class="red" id="minorsTotalOut">VAL</span></b> have exited.</p>
+        <p><b>WC:</b> <b><span class="green" id="wcTotalIn">VAL</span></b> have entered and <b><span class="red" id="wcTotalOut">VAL</span></b> have now left.</p>
+        <p><b>Total:</b> A total of <b><span class="darkgreen" id="TotalIn">VAL</span></b> guests have been <i>clicked</i> in and <b><span class="darkred" id="TotalOut">VAL</span></b> marked as exited.</p>
+    </div>
+</div>
+
+
+    <div id="footerSpace"></div>
+    <div id="footer">
+        <p style="font-weight: bold;font-size:14px;"><span class="darkorange">Synchrevent</span> is an <i>under development</i> all-purpose, easy to use platform - assisting in the live relay of critical information during your events.</p>
+        <p style="font-size:10px;color:lightgrey;"><b><span id="CRsiteTitle"></span> ©<span id="CRYear"></span></b></p>
+            <script src="scripts/tempDev.js"></script>
+            <script src="scripts/global.js"></script>
+            <script src="scripts/headCounter.js"> </script>
+    </div>
+
+
+
+
+
+</div>
+</body>
+
+</html>

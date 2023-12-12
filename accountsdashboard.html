@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html land="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synchrevent > Account Dashboard</title>
+    <link rel="icon" type="image/png" size="16x16" href="favicon.ico.png" />
+
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/accountsdashboard.css">
+    <script src="scripts/accountsdashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+
+</head>
+
+<body>
+<div id="bodyBG">
+
+    <div id="header">
+        <h2 id="stateTagTemp"> <span id="tempStateTag"></span><br><span id="tempStateVer"></span></h2>
+        <h1 id="siteTitle"></h1>
+        <p id="siteQuote"></p>
+    </div>
+
+<h1>Accounts Dashboard</h1>
+
+
+<div id="accountProfile">
+    <h2>Profile</h2>
+    <p>Username: <span id="userAccountName">VAL</span></p>
+    <p>Email: <span id="userAccountEmail">VAL</span></p>
+    <p>Total Events: <span id="totalEvents">VAL</span></p>
+</div>
+
+<div id="accountEvents">
+    <h2>Events</h2>
+    <p id="eventListing">VAL (List)</p>
+        <div id="accountEventList">
+
+            <select id="selectEventInformation" name="events" id="events">
+                <option value="987654">VAL</option>
+            </select>
+
+            <button id="loadEventInformation" class="button" type="button">Manage Event</button>
+        </div>
+    <button id="createEventInformations" type="button" class="button">Create New Event</button>
+</div>
+
+
+
+<p style="text-align: center;"><b>Need further support?</b> <br> Contact: <b><span style="color:darkblue" id="adminContactAdd"></span></b> - with the subject "<b><span id="emailSubjectLine"></span></b>".</p>
+
+<div id="footerSpace"></div>
+<div id="footer">
+<p style="font-weight: bold;font-size:14px;"><span class="darkorange">Synchrevent</span> is an <i>under development</i> all-purpose, easy to use platform - assisting in the live relay of critical information during your events.</p>
+<p style="font-size:10px;color:lightgrey;"><b><span id="CRsiteTitle"></span> ©<span id="CRYear"></span></b></p>
+    <script src="scripts/tempDev.js"></script>
+    <script src="scripts/global.js"></script>
+        <script>contactInfo()</script>
+</div>
+
+</div>
+</body>
+
+</html>

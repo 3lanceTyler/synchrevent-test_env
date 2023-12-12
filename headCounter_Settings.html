@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synchrevent > Head Counter - Settings</title>
+    <link rel="icon" type="image/png" size="16x16" href="favicon.ico.png" />
+
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/headCounter_settings.css">
+    <script src="scripts/headCounter_settings.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+
+</head>
+
+
+
+<body>
+<div id="bodyBG">
+
+
+    <div id="header">
+        <h2 id="stateTagTemp"> <span id="tempStateTag"></span><br><span id="tempStateVer"></span></h2>
+        <h1 id="siteTitle"></h1>
+        <p id="siteQuote"></p>
+    </div>
+
+    <h2 id="eventName">Event</h2>
+
+    <div id="errorPopup" hidden>
+
+        <p id="errorMsg">VAL</p>
+
+    </div>
+
+
+
+
+    <!--Dynamic live entry count data-->
+
+    <div id="mainInfoDisplay">
+
+    <table>
+
+        <tr>
+            <th style="background-color: darkslategrey;"></th>
+            <th>Adults</th>
+            <th>Minors</th>
+            <th>WC</th>
+            <th>Totals</th>
+        </tr>
+
+        <tr>
+            <td class="darkgreen bold">Total IN</td>
+            <td id="adultsTotalIn" class="green">VAL</td>
+            <td id="minorsTotalIn" class="green">VAL</td>
+            <td id="wcTotalIn" class="green">VAL</td>
+            <td id="TotalIn" class="darkgreen bold">VAL</td>
+        </tr>
+
+        <tr>
+            <td class="darkred bold">Total OUT</td>
+            <td id="adultsTotalOut" class="red">VAL</td>
+            <td id="minorsTotalOut" class="red">VAL</td>
+            <td id="wcTotalOut" class="red">VAL</td>
+            <td id="TotalOut" class="darkred bold">VAL</td>
+        </tr>
+
+        <tr>
+            <td class="darkorange bold">Filled Capacity</td>
+            <td id="currentAdults" class="orange">VAL</td>
+            <td id="currentMinors" class="orange">VAL</td>
+            <td id="currentWc" class="orange">VAL</td>
+            <td id="currentTotal" class="darkorange bold">VAL</td>
+        </tr>
+
+    </table>
+
+    <p><b>Max Capacity:</b> <span class="red" id="maxCapacity">VAL</span></p>
+
+    </div>
+
+     <div class="spacer20"></div>
+
+    <!--Event Naming Edit Field-->
+    <div>
+        <input id="eventNameEdit" type="text" placeholder="Event Name">
+            <button id="eventNameEditSubmit" class="button" onclick="editEventName()">Edit Name</button>
+    </div>
+
+     <div class="spacer10"></div>
+
+    <!--Max Capacity Edit Field-->
+    <div>
+        <input id="capacityEdit" type="text" placeholder="Max Capacity">
+            <button id="capacityEditSubmit" class="button" onclick="editMaxCapacity()">Edit Capacity</button>
+    </div>
+     <div class="spacer10"></div>
+
+    <!--Entry Block Toggle Switch-->
+    <span style="vertical-align: middle;"> Entry-Block: </span>
+    <label class="switch">
+        <input id="entryStop" name="entryStop" onclick="entryCheck()" type="checkbox">
+        <span class="slider round"></span>
+    </label>
+    <span id="entryStat" style="vertical-align: middle;"></span>
+        <script>entryCheckInit();</script>
+
+     <div class="spacer10"></div>
+
+    <span style="vertical-align: middle;">Reset Head Count Values To "0"</span>
+    <button id="resetHeadCountData" class="button" type="button" onclick="masterReset()">Reset head count data</button>
+
+    <p>Event Access Code (synchrevent.co.uk): <span class="bold red" id="currentAccessCode">VAL</span>
+        <button type="button" id="generateNewAccessCode" class="button" onclick="generateNewAccessCode()">Generate New Code</button></p>
+
+    <div id="footerSpace"></div>
+    <div id="footer">
+        <p style="font-weight: bold;font-size:14px;"><span class="darkorange">Synchrevent</span> is an <i>under development</i> all-purpose, easy to use platform - assisting in the live relay of critical information during your events.</p>
+        <p style="font-size:10px;color:lightgrey;"><b><span id="CRsiteTitle"></span> ©<span id="CRYear"></span></b></p>
+            <script src="scripts/tempDev.js"></script>
+            <script src="scripts/global.js"></script>
+    </div>
+
+
+
+
+</div>
+</body>
+
+</html>

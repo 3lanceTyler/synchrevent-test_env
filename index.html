@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html land="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synchrevent</title>
+    <link rel="icon" type="image/png" size="16x16" href="favicon.ico.png" />
+
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/index.css">
+
+    <script src="scripts/index.js"></script>
+
+</head>
+
+<body>
+<div id="bodyBG">
+
+    <div id="header">
+        <h2 id="stateTagTemp"> <span id="tempStateTag"></span><br><span id="tempStateVer"></span></h2>
+        <h1 id="siteTitle"></h1>
+        <p id="siteQuote"></p>
+    </div>
+
+
+
+<div id="temporaryContent">
+    <p class="shadow1in" style="text-align: center; background-color: bisque; padding: 6px; margin: 0 auto; margin-top: 15px; width: 80%;">
+        Welcome to <b>Synchrevent</b>.<br />
+        Currently our site is under development, so there is nothing to see just yet!<br />
+        But do check back! Perhaps you could get involved!
+    </p>
+</div>
+
+
+
+
+
+    <div id="loginCodeContainer" class="shadow3in">
+
+        <h3>Enter Access Code</h3>
+
+            <div id="loginCodeForm" class="shadow1">
+                <input type="text" class="loginCodeInputs" id="LCI1" minlength="1" maxlength="1" placeholder="0">
+                <input type="text" class="loginCodeInputs" id="LCI2" minlength="1" maxlength="1" placeholder="0">
+                <input type="text" class="loginCodeInputs" id="LCI3" minlength="1" maxlength="1" placeholder="0">
+                <input type="text" class="loginCodeInputs" id="LCI4" minlength="1" maxlength="1" placeholder="0">
+                <input type="text" class="loginCodeInputs" id="LCI5" minlength="1" maxlength="1" placeholder="0">
+                <input type="text" class="loginCodeInputs" id="LCI6" minlength="1" maxlength="1" placeholder="0">
+                
+
+            </div>
+
+                <div id="errorPopup" style="margin-left:-10px;" hidden>
+                    <p id="errorMsg"></p>
+                </div>
+
+        <button type="button" onclick="submitEntryCode()" class="button shadow1in" id="loginCodeSubmit">Enter Code</button>
+        <p>If you do not have a code, speak with your event leaders about being granted access.</p>
+
+    </div>
+
+
+    <div id="loginAccountContainer" class="shadow3in">
+
+        <h3>..Or Login Below</h3>
+
+        <p id="accountLoginErrorPopup" class="shadow3in" hidden>!!! Error Logging In !!!</p>
+
+        <input id="loginUsernameInput" class="accountInputs shadow1" type="text" placeholder="Username"> <br />
+        <input id="loginPasswordInput" class="accountInputs shadow1" type="password" placeholder="Password"> <br />
+        <button id="loginAccountSubmit" class="button shadow1in" type="button" onclick="submitAccountDetails()" >Login</button>
+
+    </div>
+        <script>entryCodeResetter()</script>
+
+    <p style="text-align: center;"><b>Need further support?</b> <br> Contact: <b><span style="color:darkblue" id="adminContactAdd"></span></b> - with the subject "<b><span id="emailSubjectLine"></span></b>".</p>
+    
+
+    <div id="footerSpace"></div>
+    <div id="footer">
+        <p style="font-weight: bold;font-size:14px;"><span class="darkorange">Synchrevent</span> is an <i>under development</i> all-purpose, easy to use platform - assisting in the live relay of critical information during your events.</p>
+        <p style="font-size:10px;color:lightgrey;"><b><span id="CRsiteTitle"></span> ©<span id="CRYear"></span></b></p>
+            <script src="scripts/tempDev.js"></script>
+            <script src="scripts/global.js"></script>
+                <script>contactInfo()</script>
+    </div>
+
+</div>
+</body>
+
+</html>

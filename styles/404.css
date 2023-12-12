@@ -1,0 +1,37 @@
+#notFoundContainer h1 {
+    font-size: 50px;
+    color: red;
+    margin: 25px auto;
+}
+
+#notFoundContainer h2 {
+    text-align: center;
+    padding: 0 30px
+}
+
+#notFoundContainer h4 {
+    text-align: center;
+    padding: 0 50px
+}
+
+#notFoundContainer div {
+    background-color:  rgba(200, 200, 200, 0.2);
+    border-color:  rgba(100, 100, 100, 0.7);
+    border-width: 1px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+}
+
+#notFoundContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 650px;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    top: 0;
+    left: auto;
+    z-index: 1000; 
+}

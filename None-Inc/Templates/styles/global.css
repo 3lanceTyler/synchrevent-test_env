@@ -96,6 +96,7 @@
     }
 
 
+
 /* GENERIC CLASSES */
 
 /* Main Colors */
@@ -382,30 +383,23 @@ button {
     background-color: var(--col-b);
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
     margin: 0;
-}
-
-h2 {
-    margin: 0;
-}
-
-h3 {
-    margin: 0;
-}
-
-h4 {
-    margin: 0;
+    text-align: center;
 }
 
 p {
-
+    padding: 5px 10px;
 }
 
 a {
     color: var(--html-link-col);
     text-decoration: none;
     font-weight: var(--font-w-b2);
+}
+
+a:hover {
+    text-shadow: 0px 0px 6px var(--col-lo);
 }
 
 
@@ -479,9 +473,6 @@ nav a:active {
     transition: 0s;
 }
 
-nac a:visited {
-
-}
 
 @media (max-width: 768px) {
     footer > #logo, footer > #site-quote {

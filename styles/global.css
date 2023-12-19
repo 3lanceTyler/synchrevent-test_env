@@ -1,3 +1,43 @@
+#maintenanceModeContainer h1 {
+    font-size: 50px;
+    color: red;
+    margin: 25px auto;
+}
+
+#maintenanceModeContainer h2 {
+    text-align: center;
+    padding: 0 30px
+}
+
+#maintenanceModeContainer h4 {
+    text-align: center;
+    padding: 0 50px
+}
+
+#maintenanceModeContainer div {
+    background-color:  rgba(200, 200, 200, 0.2);
+    border-color:  rgba(100, 100, 100, 0.7);
+    border-width: 1px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+}
+
+#maintenanceModeContainer {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 650px;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    top: 0;
+    left: auto;
+    z-index: 1000; 
+}
+
+
+
 #stateTagTemp {
     color:darkorange;
     font-weight:bold;
@@ -89,7 +129,7 @@
 
 
 body {
-    max-width: 650px;
+    max-width: 750px;
     background-color: #f0f0f0;
     margin: 0 auto;
     font-family: Arial, sans-serif;
@@ -174,13 +214,13 @@ h1 {
 }
 
 #footerSpace {
-    height: 85px;
+    height: 100px;
 }
 
 #footer {
     position: fixed;
     bottom: 0px;
-    max-width: 630px;
+    max-width: 730px;
     padding: 10px;
     background-color: #04AA6D;
     color: #fff;
@@ -265,4 +305,20 @@ button[disabled] {
   
   .slider.round:before {
     border-radius: 50%;
+  }
+
+
+
+  ::-webkit-scrollbar {
+    width: 2px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #000; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #f68a0e; 
   }

@@ -124,3 +124,190 @@ th, td {
     padding: 20px;
     text-align: center;
 }
+
+#incidentsContainer, #informationContentContainer, #notificationContentContainer, #personAssignmentsContainer {
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: grey;
+}
+
+#incidentsContainer h2 {
+    margin-bottom: 0px;
+}
+
+#incidentsContainer button {
+        height:auto;
+        padding: 5px 10px;
+        font-weight: bold;
+        margin-top: 3px;
+}
+
+#incidentReportLogContainer, #individualInfoContent, #individualNotiContent, #individualAssiContent {
+    background-color: darkgrey;
+    max-height: 600px;
+    width: 95%;
+    margin: 5px auto;
+    overflow: auto;
+}
+
+
+#newIncidentContainer, #respondTextContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 750px;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    top: 0;
+    left: auto;
+    z-index: 1000;
+    transform: translateX(-36px);
+    padding-top: 40vh;
+    display: none;
+
+}
+
+#incidentTypeButtonContainer {
+    padding: 10px 0px;
+}
+
+#incidentContextContainer {
+    background-color: rgb(233, 233, 233);
+    padding: 5px 0;
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+#reportIncidentMsgInput, #incidentResponseInput {
+    text-align: center;
+    padding: 10px 10px;
+}
+
+#incidentLogFeed {
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.IIC, .infoEntryContainer {
+    background-color: white;
+    display: block;
+    padding-bottom: 5px;
+    max-height: 600px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+
+.IIIM, .IIAM, .IIRM, .notiEntryContainer {
+    padding: 2px;
+    margin: 5px 10px;
+    max-height: 150px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.IITM {
+    margin-bottom: 5px;
+}
+
+.IIIM {
+    background-color: rgb(187, 33, 33);
+    margin-right: 40px;
+}
+
+.IIAM {
+    background-color: darkorange;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.IIRM {
+    
+    background-color: rgb(61, 247, 61);
+    margin-left: 40px;
+}
+
+.IIFL {
+    width: 65%;
+    display: inline-block;
+    text-align: left;
+    margin: 0px auto;
+    overflow: hidden;
+    font-weight: 500;
+}
+
+.IIFR {
+    width: 30%;
+    text-align: right;
+    margin-bottom: 0px;
+    float: right;
+    border-left-style: solid;
+    padding-right: 2px;
+}
+
+h4.IIFL {
+    font-size: 26px;
+    padding-top: 5px;
+    padding-left: 15px;
+    margin-bottom: 0;
+    width: auto;
+    display: block;
+    font-weight: bold;
+}
+
+h4.IIFR {
+    border-left-style: none;
+    margin-top: 0px;
+    padding-right: 15px;
+    font-size: 20px;
+    width: auto;
+    float: none;
+}
+
+
+.informationContentContainer {
+    padding: 10px 15px;
+    text-align: center;
+}
+
+
+.infoEntryTitle {
+    margin-bottom: 5px;
+    margin-left: 20px;
+    text-align: left;
+
+}
+
+.infoEntryDesc {
+    margin-top: 0px;
+    margin-left: 40px;
+    margin-bottom: 5px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.notiEntryContainer {
+    background-color: rgb(187, 33, 33);
+}
+
+.notiEntryDesc {
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    margin-left: 20px;
+    margin-right: 10px;
+    max-width: 80%;
+}
+
+.notiEntryTime {
+    text-align: right;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    max-width: 15%;
+    margin-left: auto;
+    margin-right: 0px;
+}

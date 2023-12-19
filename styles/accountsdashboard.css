@@ -34,3 +34,8 @@
     margin: 0 auto;
     margin-top: 10px;
 }
+
+#eventListing {
+    text-align: center;
+    font-weight: bold;
+}

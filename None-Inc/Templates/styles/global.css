@@ -379,6 +379,13 @@ body {
     color: var(--shade-w);
 }
 
+@media (prefers-color-scheme:dark){
+body{
+color: var(--shade-w)!important;
+background: var(--col-lg)!important;
+}
+}
+
 button {
     background-color: var(--col-b);
 }

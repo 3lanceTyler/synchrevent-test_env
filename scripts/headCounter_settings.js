@@ -240,10 +240,337 @@ function editMaxCapacity () {
     }
 }
 
+function incidentLogRetrieval () {
+    
+    let con = "https://primary-production-9330.up.railway.app/webhook/synchrevent/event_incident";
+    let call = "?method=dataGrab";
+    let eid = "&eventID=" + sessionStorage.eventID;
+    let url = con + call + eid;
 
+    fetch(url)
+    .then(res => {
+        // Converting returned data to usable JSON
+        return res.json();
+    })
+    .then(data => {
+        console.log(data.incidents);
+
+        const eventListContainer = document.getElementById('incidentLogFeed');
+
+        // Clear existing content
+        eventListContainer.innerHTML = '';
+    
+        // Loop through the data and create HTML elements
+    if (Array.isArray(data.incidents)) {
+        const reversedIncidents = data.incidents.slice().reverse();
+
+        reversedIncidents.forEach(event => {
+            const eventItem = document.createElement('p');
+
+            if (event.type == undefined) {
+                eventItem.innerHTML = "No incidents reported yet!";
+                eventListContainer.appendChild(eventItem);
+                return;
+            }
+
+
+            let ackMsg = "";
+            let resMsg = "";
+            let ackBut = `<button onClick="incidentRespond('acknowledge', ${event.id})" type="button" class="acknowledgeIncident button">Acknowledge</button>`;
+            let resBut = `<button onClick="incidentRespond('resolve', ${event.id})" type="button" class="resolveIncident button">Resolve</button>`;
+
+            if (event.acknowledgeMsg != null) {
+                ackMsg = `<div class="IIAM shadow3in"><p class="IIFL">${event.acknowledgeMsg}</p> <p class="IIFR">${event.acknowledgeTime}<br />CONTROL</p></div>`;
+                ackBut = "";
+            }
+
+            if (event.resolvedMsg != null) {
+                resMsg = `<div class="IIRM shadow3in"><p class="IIFL">${event.resolvedMsg}</p> <p class="IIFR">${event.resolvedTime}<br />CONTROL</p></div>`;
+                resBut = "";
+                ackBut = "";
+            }
+
+
+            eventItem.innerHTML = `<div class="IIC shadow5in">
+            <div class="IITM"><h4 class="IIFL">Incident: ${event.type}</h4>  <h4 class="IIFR"><button onClick="incidentRespond('delete', ${event.id})" type="button" class="resolveIncident button">Remove Incident</button> Status: ${event.status}</h4></div>
+            <div class="IIIM shadow3in"><p class="IIFL">${event.initialMsg}</p> <p class="IIFR">${event.creationTime}<br />${event.author}</p></div>`
+            + ackMsg + resMsg +
+            ackBut + resBut
+            + `</div>`;
+            eventListContainer.appendChild(eventItem);
+        });
+    } else {
+        const eventItem = document.createElement('p');
+
+        if (data.type == undefined) {
+            eventItem.innerHTML = "No incidents reported yet!";
+            eventListContainer.appendChild(eventItem);
+            return;
+        }
+
+
+        let ackMsg = "";
+        let resMsg = "";
+        let ackBut = `<button onClick="incidentRespond('acknowledge', ${data.id})" type="button" class="acknowledgeIncident button">Acknowledge</button>`;
+            let resBut = `<button onClick="incidentRespond('resolve', ${data.id}")" type="button" class="resolveIncident button">Resolve</button>`;
+
+        if (data.acknowledgeMsg != null) {
+            ackMsg = `<div class="IIAM shadow3in"><p class="IIFL">${data.acknowledgeMsg}</p> <p class="IIFR">${data.acknowledgeTime}<br />CONTROL</p></div>`;
+            ackBut = "";
+        }
+
+        if (data.resolvedMsg != null) {
+            resMsg = `<div class="IIRM shadow3in"><p class="IIFL">${data.resolvedMsg}</p> <p class="IIFR">${data.resolvedTime}<br />CONTROL</p></div>`;
+            ackBut = "";
+            resBut = "";
+        }
+
+
+            eventItem.innerHTML = `<div class="IIC shadow5in">
+            <div class="IITM"><h4 class="IIFL">Incident: ${data.type}</h4> <h4 class="IIFR"><button onClick="incidentRespond('delete', ${data.id})" type="button" class="resolveIncident button">Remove Incident</button> Status: ${data.status}</h4></div>
+            <div class="IIIM shadow3in"><p class="IIFL">${data.initialMsg}</p> <p class="IIFR">${data.creationTime}<br />${data.author}</p></div>`
+            + ackMsg + resMsg +
+            ackBut + resBut
+            + `</div>`;
+            eventListContainer.appendChild(eventItem);
+    }
+
+
+    })
+    .catch(error => {
+        console.log(error);
+    });
+}
+
+
+function selectNewIncident (bid) {
+    // ENABLING ALL BUTTONS
+    document.getElementById('riFIRE').disabled = false;  
+    document.getElementById('riSECURITY').disabled = false;  
+    document.getElementById('riMEDICAL').disabled = false;  
+    document.getElementById('riLOST').disabled = false;  
+    document.getElementById('riTECH').disabled = false;  
+    document.getElementById('riGENERAL').disabled = false;
+    
+    // DISABLING THE TOGGLED BUTTON
+    setTimeout(() => {
+        document.getElementById(bid).disabled = true;
+    }, 100);
+}
+
+
+function submitNewIncidentReport () {
+    let context = document.getElementById('reportIncidentMsgInput');
+
+    // FINDING THE SELECTED INCIDENT TYPE
+
+    let incType = (() => {
+    if (document.getElementById('riGENERAL').disabled == true) {
+        return "GENERAL";
+    }
+    if (document.getElementById('riFIRE').disabled == true) {
+        return "FIRE";
+    }
+    if (document.getElementById('riSECURITY').disabled == true) {
+        return "SECURITY";
+    }
+    if (document.getElementById('riMEDICAL').disabled == true) {
+        return "MEDICAL";
+    }
+    if (document.getElementById('riLOST').disabled == true) {
+        return "LOST CHILD";
+    }
+    if (document.getElementById('riTECH').disabled == true) {
+        return "TECHNICAL";
+    }
+    })();
+
+
+    // CHECKING TEXT HAS BEEN PROVIDED
+    let incRep = (() =>{
+        if (context.checkValidity()) {
+            return "true";
+        } else {
+            return "false";
+        }
+    })();
+    
+
+    let newIncSubmitRun = (() => {
+        if (incType != undefined) {
+            if (incRep != "false") {
+                return "run";
+            } else { return "noRun"; }
+        } else { return "noRun"; }
+    })();
+
+    if (newIncSubmitRun == "run") {
+        // SUCCESSFULLY FILLED INCIDENT REPORT
+        console.log("Submit run");
+            let con = "https://primary-production-9330.up.railway.app/webhook/synchrevent/event_incident";
+            let call = "?method=reportSubmit";
+            let eid = "&eventID=" + sessionStorage.getItem('eventID');
+            let type = "&type=" + incType;
+            let msg = "&msg=" + document.getElementById('reportIncidentMsgInput').value;
+            let author = "&user=" + sessionStorage.getItem('displayName');
+            let url = con + call + eid + type + msg + author;
+
+            fetch(url)
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                console.log(data);
+                if(data.success == true) {
+                    document.getElementById('reportIncidentMsgInput').value = "";
+                    document.getElementById('reportIncident').textContent = "Report New Incident";
+                    selectNewIncident("riGENERAL");
+                    document.getElementById('newIncidentContainer').style.display = "none";
+                    incidentLogRetrieval();
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
+        
+    } else {
+        // FAILED TO SUCCESSFULLY FILL INCIDENT REPORT
+        console.log("Submit no Run");
+
+    }
+    
+
+
+}
+
+function showHideNewIncidents () {
+    if (document.getElementById('newIncidentContainer').style.display == "none") {
+
+        document.getElementById('newIncidentContainer').style.display = "block";
+        document.getElementById('reportIncident').textContent = "Close";
+    } else {
+
+        document.getElementById('newIncidentContainer').style.display = "none";
+        document.getElementById('reportIncidentMsgInput').value = "";
+        selectNewIncident("riGENERAL");
+        document.getElementById('reportIncident').textContent = "Report New Incident";
+    }
+}
+
+
+function incidentRespond (action, iid) {
+
+    // action = delete/resolve/acknowledge
+    let tInTitle;
+    if (action == "acknowledge") {
+        console.log('acknowledge');
+        sessionStorage.setItem('incidentResponseType', 'acknowledge');
+        sessionStorage.setItem('incidentResponseID', iid);
+        tInTitle = "Acknowledgement";
+    }
+
+    if (action == "resolve") {
+        console.log('resolve');
+        sessionStorage.setItem('incidentResponseType','resolve');
+        sessionStorage.setItem('incidentResponseID', iid);
+        tInTitle = "Resolution";
+    }
+
+    if (action == "delete") {
+        console.log("delete");
+        sessionStorage.setItem('incidentResponseType', 'delete');
+
+            if (confirm("Are you sure you want to delete this incident? ( !!! THIS CAN NOT BE REVERSED !!! )") == false) {
+                return;
+            };
+
+        let con = "https://primary-production-9330.up.railway.app/webhook/synchrevent/event_incident?method=reportDelete&incidentID=" + iid;
+
+        fetch(con)
+        .then(res => {
+            return res.json();
+        })
+        .then(data => {
+            if (data.success == true) {
+                incidentLogRetrieval();
+                hideElement("respondTextContainer");
+                setTimeout(() => {
+                    alert("Incident report deleted successfully");
+                }, 100);
+            } else {
+                hideElement("respondTextContainer");
+                setTimeout(() => {
+                    alert("Failed to delete incident report - try again");
+                }, 100);
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        })
+
+        return;
+    }
+
+    document.getElementById('respondTextContainer').style.display = "block";
+    document.getElementById('incidentResponseInput').value = "";
+    document.getElementById('incidentResponseTypeTitle').textContent = tInTitle;
+} 
+
+function submitIncidentRespond () {
+    if (!document.getElementById('incidentResponseInput').checkValidity()) {
+        return;
+    }
+
+    
+    let con = "https://primary-production-9330.up.railway.app/webhook/synchrevent/event_incident";
+    let q;
+        if (sessionStorage.getItem('incidentResponseType') == 'acknowledge') {
+            q = "?method=reportAcknowledge";
+        }
+
+        if (sessionStorage.getItem('incidentResponseType') =='resolve') {
+            q = "?method=reportResolve";
+        }
+
+    
+    let iid = "&incidentID=" + sessionStorage.getItem('incidentResponseID');
+    let msg = "&message=" + encodeURI(document.getElementById('incidentResponseInput').value);
+
+    fetch(con + q + iid + msg)
+    .then(res => {
+        return res.json();
+    })
+    .then(data => {
+        console.log(data);
+        if (data.success == true) {
+            incidentLogRetrieval();
+            hideElement("respondTextContainer");
+            setTimeout(() => {
+                alert("Response submitted successfully");
+            }, 100);
+        } else {
+            hideElement("respondTextContainer");
+            setTimeout(() => {
+                alert("Failed to submit response - try again");
+            }, 100);
+        }
+    })
+    .catch(error => {
+        console.log(error);
+    })
+
+}
+
+
+function hideElement (eid) {
+    document.getElementById(eid).style.display = "none";
+}
 
 
 // Re-requesting data every 1 seconds
 // setInterval(() => dataCall(), 1000);
 // Initial data request for first load
 dataCall();
+entryCheckInit();
+selectNewIncident("riGENERAL");
+incidentLogRetrieval();

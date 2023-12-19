@@ -1,6 +1,6 @@
 let $buttonRunStat = false;
 
-        function runHook(qry, qty, btid) {
+function runHook(qry, qty, btid) {
 
             if (sessionStorage.eventID == undefined) {
                 return;
@@ -105,13 +105,13 @@ let $buttonRunStat = false;
         
 
                 // Requesting Data from N8N    
-                function dataCall(buttonRunStat) { if (!$buttonRunStat) { 
+function dataCall(buttonRunStat) { if (!$buttonRunStat) { 
                     
                     // Returning if no eventID assigned
-                    if (sessionStorage.eventID == undefined) {
-                        window.location.href = "index.html";
-                        return;
-                    }
+                    // if (sessionStorage.eventID == undefined) {
+                    //     window.location.href = "index.html";
+                    //     return;
+                    // }
 
 
                     // Set display name popup
@@ -132,13 +132,15 @@ let $buttonRunStat = false;
                 })
                     .then(data => {
 
-                        // Returning to homepage if accesscode mismateches on any call
-                        if (sessionStorage.accessCode != data.accessCode) {
-                            sessionStorage.removeItem("eventID");
-                            sessionStorage.removeItem("accessCode");
-                            window.location.href = "index.html";
-                            return;
-                        }
+                        // Returning to homepage if accessCode mismateches on any call - manager exception
+                    // if (!sessionStorage.manager) {
+                    //     if (sessionStorage.accessCode != data.accessCode) {
+                    //         sessionStorage.removeItem("eventID");
+                    //         sessionStorage.removeItem("accessCode");
+                    //         window.location.href = "index.html";
+                    //         return;
+                    //     }
+                    // }
 
 
                         console.log(data);
@@ -168,11 +170,9 @@ let $buttonRunStat = false;
 
 
 
-                        let $capacityMsg = "0";
+                        let $capacityMsg = "";
                         if (data.currentCapacity >= data.maxCapacity) {
                             $capacityMsg = " !!! CAPACITY REACHED !!!";
-                        } else {
-                            $capacityMsg = "";
                         }
 
                         document.getElementById('maxCapacity').textContent = data.maxCapacity + $capacityMsg;
@@ -280,8 +280,217 @@ function submitDisplayName () {
 }
 
 
+function incidentLogRetrieval () {
+    
+    let con = "https://primary-production-9330.up.railway.app/webhook/synchrevent/event_incident";
+    let call = "?method=dataGrab";
+    let eid = "&eventID=" + sessionStorage.eventID;
+    let url = con + call + eid;
+
+    fetch(url)
+    .then(res => {
+        // Converting returned data to usable JSON
+        return res.json();
+    })
+    .then(data => {
+        console.log(data.incidents);
+
+        const eventListContainer = document.getElementById('incidentLogFeed');
+
+        // Clear existing content
+        eventListContainer.innerHTML = '';
+    
+        // Loop through the data and create HTML elements
+    if (Array.isArray(data.incidents)) {
+
+        const reversedIncidents = data.incidents.slice().reverse();
+
+        reversedIncidents.forEach(event => {
+            const eventItem = document.createElement('p');
+
+            if (event.type == undefined) {
+                eventItem.innerHTML = "No incidents reported yet!";
+                eventListContainer.appendChild(eventItem);
+                return;
+            }
+
+
+            let ackMsg = "";
+            let resMsg = "";
+
+            if (event.acknowledgeMsg != null) {
+                ackMsg = `<div class="IIAM shadow3in"><p class="IIFL">${event.acknowledgeMsg}</p> <p class="IIFR">${event.acknowledgeTime}<br />CONTROL</p></div>`;
+            }
+
+            if (event.resolvedMsg != null) {
+                resMsg = `<div class="IIRM shadow3in"><p class="IIFL">${event.resolvedMsg}</p> <p class="IIFR">${event.resolvedTime}<br />CONTROL</p></div>`;
+            }
+
+
+            eventItem.innerHTML = `<div class="IIC shadow5in">
+            <div class="IITM"><h4 class="IIFL">Incident: ${event.type}</h4> <h4 class="IIFR">Status: ${event.status}</h4></div>
+            <div class="IIIM shadow3in"><p class="IIFL">${event.initialMsg}</p> <p class="IIFR">${event.creationTime}<br />${event.author}</p></div>`
+            + ackMsg + resMsg
+            + `</div>`;
+            eventListContainer.appendChild(eventItem);
+        });
+    } else {
+        const eventItem = document.createElement('p');
+
+        if (data.type == undefined) {
+            eventItem.innerHTML = "No incidents reported yet!";
+            eventListContainer.appendChild(eventItem);
+            return;
+        }
+
+
+        let ackMsg = "";
+        let resMsg = "";
+
+        if (data.acknowledgeMsg != null) {
+            ackMsg = `<div class="IIAM shadow3in"><p class="IIFL">${data.acknowledgeMsg}</p> <p class="IIFR">${data.acknowledgeTime}<br />CONTROL</p></div>`;
+        }
+
+        if (data.resolvedMsg != null) {
+            resMsg = `<div class="IIRM shadow3in"><p class="IIFL">${data.resolvedMsg}</p> <p class="IIFR">${data.resolvedTime}<br />CONTROL</p></div>`;
+        }
+
+
+            eventItem.innerHTML = `<div class="IIC shadow5in">
+            <div class="IITM"><h4 class="IIFL">Incident: ${data.type}</h4> <h4 class="IIFR">Status: ${data.status}</h4></div>
+            <div class="IIIM shadow3in"><p class="IIFL">${data.initialMsg}</p> <p class="IIFR">${data.creationTime}<br />${data.author}</p></div>`
+            + ackMsg + resMsg
+            + `</div>`;
+            eventListContainer.appendChild(eventItem);
+    }
+
+
+    })
+    .catch(error => {
+        console.log(error);
+    });
+}
+
+
+function selectNewIncident (bid) {
+    // ENABLING ALL BUTTONS
+    document.getElementById('riFIRE').disabled = false;  
+    document.getElementById('riSECURITY').disabled = false;  
+    document.getElementById('riMEDICAL').disabled = false;  
+    document.getElementById('riLOST').disabled = false;  
+    document.getElementById('riTECH').disabled = false;  
+    document.getElementById('riGENERAL').disabled = false;
+    
+    // DISABLING THE TOGGLED BUTTON
+    setTimeout(() => {
+        document.getElementById(bid).disabled = true;
+    }, 100);
+}
+
+
+function submitNewIncidentReport () {
+    let context = document.getElementById('reportIncidentMsgInput');
+
+    // FINDING THE SELECTED INCIDENT TYPE
+
+    let incType = (() => {
+    if (document.getElementById('riGENERAL').disabled == true) {
+        return "GENERAL";
+    }
+    if (document.getElementById('riFIRE').disabled == true) {
+        return "FIRE";
+    }
+    if (document.getElementById('riSECURITY').disabled == true) {
+        return "SECURITY";
+    }
+    if (document.getElementById('riMEDICAL').disabled == true) {
+        return "MEDICAL";
+    }
+    if (document.getElementById('riLOST').disabled == true) {
+        return "LOST CHILD";
+    }
+    if (document.getElementById('riTECH').disabled == true) {
+        return "TECHNICAL";
+    }
+    })();
+
+
+    // CHECKING TEXT HAS BEEN PROVIDED
+    let incRep = (() =>{
+        if (context.checkValidity()) {
+            return "true";
+        } else {
+            return "false";
+        }
+    })();
+    
+
+    let newIncSubmitRun = (() => {
+        if (incType != undefined) {
+            if (incRep != "false") {
+                return "run";
+            } else { return "noRun"; }
+        } else { return "noRun"; }
+    })();
+
+    if (newIncSubmitRun == "run") {
+        // SUCCESSFULLY FILLED INCIDENT REPORT
+        console.log("Submit run");
+            let con = "https://primary-production-9330.up.railway.app/webhook/synchrevent/event_incident";
+            let call = "?method=reportSubmit";
+            let eid = "&eventID=" + sessionStorage.getItem('eventID');
+            let type = "&type=" + incType;
+            let msg = "&msg=" + document.getElementById('reportIncidentMsgInput').value;
+            let author = "&user=" + sessionStorage.getItem('displayName');
+            let url = con + call + eid + type + msg + author;
+
+            fetch(url)
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                console.log(data);
+                if(data.success == true) {
+                    document.getElementById('reportIncidentMsgInput').value = "";
+                    document.getElementById('reportIncident').textContent = "Report New Incident";
+                    selectNewIncident("riGENERAL");
+                    document.getElementById('newIncidentContainer').style.display = "none";
+                    incidentLogRetrieval();
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
+        
+    } else {
+        // FAILED TO SUCCESSFULLY FILL INCIDENT REPORT
+        console.log("Submit no Run");
+
+    }
+    
+
+
+}
+
+function showHideNewIncidents () {
+    if (document.getElementById('newIncidentContainer').style.display == "none") {
+
+        document.getElementById('newIncidentContainer').style.display = "block";
+        document.getElementById('reportIncident').textContent = "Close";
+    } else {
+
+        document.getElementById('newIncidentContainer').style.display = "none";
+        document.getElementById('reportIncidentMsgInput').value = "";
+        selectNewIncident("riGENERAL");
+        document.getElementById('reportIncident').textContent = "Report New Incident";
+    }
+}
+
+
 
             // Re-requesting data every 1 seconds
             // setInterval(() => dataCall($buttonRunStat), 1000);
             // Initial data request for first load
             dataCall($buttonRunStat);
+            selectNewIncident("riGENERAL");
+            incidentLogRetrieval();

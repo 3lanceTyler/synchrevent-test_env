@@ -1,6 +1,6 @@
 function fixedInfo () {
-    let $tag = "TEST BUILD";
-    let $ver = "0.1.6";    
+    let $tag = "Pre-Alpha";
+    let $ver = "0.2.1";    
     document.getElementById('tempStateTag').textContent = $tag;
     document.getElementById('tempStateVer').textContent = "V" + $ver;
 }

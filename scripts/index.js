@@ -99,6 +99,8 @@ function submitAccountDetails () {
             document.getElementById('loginAccountSubmit').style.display = "none";
 
                 sessionStorage.setItem("userID", data.userID);
+                localStorage.setItem("username", data.username);
+                localStorage.setItem("email", data.email);
                 console.log(sessionStorage.getItem("userID"));
                 setTimeout(() => {
                     window.location.href = "accountsdashboard.html";

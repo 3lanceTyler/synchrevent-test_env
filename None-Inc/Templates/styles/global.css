@@ -382,7 +382,7 @@ body {
 @media (prefers-color-scheme:dark){
 body{
 color: var(--shade-w)!important;
-background: var(--col-lg)!important;
+background: var(--shade-lg)!important;
 }
 }
 

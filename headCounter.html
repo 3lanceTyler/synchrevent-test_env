@@ -16,8 +16,21 @@
 </head>
 
 <body>
-    <div id="bodyBG">
+<div id="bodyBG">
 
+
+    <div id="maintenanceModeContainer">
+        <div>
+        <h1 id="maintenanceTitle"></h1>
+        <h2 id="maintenanceSubtitle"></h2>
+        <h4 id="maintenanceLittletittle"></h4>
+        </div>
+    </div>
+
+
+
+
+<div id="bodyContent">
 
         <div id="header">
             <h2 id="stateTagTemp"> <span id="tempStateTag"></span><br><span id="tempStateVer"></span></h2>
@@ -51,7 +64,10 @@
 
 </div>
 
-<div id="fullyBody">  
+<div id="fullyBody">
+
+<div id="headCounterContainer">
+    
     <div id="mainInfoDisplay">
 
 
@@ -112,6 +128,120 @@
         <p><b>WC:</b> <b><span class="green" id="wcTotalIn">VAL</span></b> have entered and <b><span class="red" id="wcTotalOut">VAL</span></b> have now left.</p>
         <p><b>Total:</b> A total of <b><span class="darkgreen" id="TotalIn">VAL</span></b> guests have been <i>clicked</i> in and <b><span class="darkred" id="TotalOut">VAL</span></b> marked as exited.</p>
     </div>
+
+</div>
+
+    <div class="spacer"></div>
+
+
+
+<div id="incidentsContainer">
+
+        <h2>Incident Management</h2>
+
+        <button id="reportIncident" class="button" onclick="showHideNewIncidents()" type="button">Report New Incident</button> <br />
+
+    <div id="incidentReportLogContainer">
+        
+        <div id="newIncidentContainer">
+
+            
+            <div id="incidentTypeButtonContainer">
+                <button class="button" onclick="showHideNewIncidents()" type="button">Close</button> <br />
+
+                <button id="riGENERAL" onclick="selectNewIncident('riGENERAL')" class="button" type="button">GENERAL</button>
+                <button id="riFIRE" onclick="selectNewIncident('riFIRE')" class="button" type="button">FIRE</button>
+                <button id="riSECURITY" onclick="selectNewIncident('riSECURITY')" class="button" type="button">SECURITY</button>
+                <button id="riMEDICAL" onclick="selectNewIncident('riMEDICAL')" class="button" type="button">MEDICAL</button>
+                <button id="riLOST" onclick="selectNewIncident('riLOST')" class="button" type="button">LOST CHILD</button>
+                <button id="riTECH" onclick="selectNewIncident('riTECH')" class="button" type="button">TECHNICAL</button>
+
+            </div>
+
+            <div id="incidentContextContainer">
+
+                <textarea id="reportIncidentMsgInput" required type="text" rows="5" cols="50" placeholder="Further information.. Location, persons involved, urgency, etc.."></textarea>
+                <button id="reportIncidentSubmit" class="button" type="button" onclick="submitNewIncidentReport()">Submit Incident</button>
+
+            </div>
+
+        </div>
+
+        <div id="incidentLogFeed"></div>
+
+    </div>
+        
+</div>
+
+
+
+<div id="informationContentContainer">
+
+    <h2>Event Information</h2>
+
+        <div id="individualInfoContent">
+
+            <div class="infoEntryContainer">
+                <h1 class="infoEntryTitle">Title</h1>
+                <p class="infoEntryDesc">Description</p>
+            </div>
+
+        </div>
+
+</div>
+
+
+
+
+
+<div id="notificationContentContainer">
+
+    <h2>Notifications</h2>
+
+        <div id="individualNotiContent">
+
+            <div class="notiEntryContainer">
+                <p class="notiEntryDesc">Noti Content</p>
+                <p class="notiEntryTime">TimeStamp</p>
+            </div>
+
+        </div>
+
+</div>
+
+
+
+
+
+<div id="personAssignmentsContainer">
+
+    <h2>Assignments</h2>
+    
+        <div id="individualAssiContent">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Assignment</th>
+                    <th>Location</th>
+                    <th>Hours</th>
+                    <th>Break</th>
+                </tr>
+
+                <tr>
+                    <td>Tyler</td>
+                    <td>Payment collection</td>
+                    <td>Entry/Exit</td>
+                    <td>16:00 > 22:00</td>
+                    <td>19:00 (20 Minutes)</td>
+                </tr>
+            </table>
+        </div>
+    
+</div>
+
+
+
+
 </div>
 
 
@@ -127,7 +257,7 @@
 
 
 
-
+</div>
 </div>
 </body>
 

@@ -10,9 +10,8 @@
     <link rel="icon" type="image/png" size="16x16" href="favicon.ico.png" />
 
     <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/headCounter.css">
     <link rel="stylesheet" href="styles/headCounter_settings.css">
-    <script src="scripts/headCounter_settings.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
 
 </head>
 
@@ -20,6 +19,18 @@
 
 <body>
 <div id="bodyBG">
+
+
+    <div id="maintenanceModeContainer">
+        <div>
+        <h1 id="maintenanceTitle"></h1>
+        <h2 id="maintenanceSubtitle"></h2>
+        <h4 id="maintenanceLittletittle"></h4>
+        </div>
+    </div>
+
+
+<div id="bodyContent">
 
 
     <div id="header">
@@ -107,15 +118,68 @@
         <span class="slider round"></span>
     </label>
     <span id="entryStat" style="vertical-align: middle;"></span>
-        <script>entryCheckInit();</script>
 
      <div class="spacer10"></div>
 
+    <!--Reset headcount data-->
     <span style="vertical-align: middle;">Reset Head Count Values To "0"</span>
     <button id="resetHeadCountData" class="button" type="button" onclick="masterReset()">Reset head count data</button>
 
+    <!--Generate new entry code-->
     <p>Event Access Code (synchrevent.co.uk): <span class="bold red" id="currentAccessCode">VAL</span>
         <button type="button" id="generateNewAccessCode" class="button" onclick="generateNewAccessCode()">Generate New Code</button></p>
+
+
+
+    <div id="incidentsContainer">
+
+            <h2>Incident Management</h2>
+    
+            <button id="reportIncident" class="button" onclick="showHideNewIncidents()" type="button">Report New Incident</button> <br />
+    
+        <div id="incidentReportLogContainer">
+
+            <div id="respondTextContainer">
+                <button onclick="hideElement('respondTextContainer')" class="button">Close</button>
+                <h2><span id="incidentResponseTypeTitle"></span> Message</h2>
+                <textarea id="incidentResponseInput" required type="text" rows="5" cols="75" placeholder="Response message"></textarea> <br />
+                <button id="incidentResponseSubmit" class="button" type="button" onclick="submitIncidentRespond()">Submit Response</button>
+            </div>
+            
+            <div id="newIncidentContainer">
+    
+                
+                <div id="incidentTypeButtonContainer">
+                    <button class="button" onclick="showHideNewIncidents()" type="button">Close</button> <br />
+    
+                    <button id="riGENERAL" onclick="selectNewIncident('riGENERAL')" class="button" type="button">GENERAL</button>
+                    <button id="riFIRE" onclick="selectNewIncident('riFIRE')" class="button" type="button">FIRE</button>
+                    <button id="riSECURITY" onclick="selectNewIncident('riSECURITY')" class="button" type="button">SECURITY</button>
+                    <button id="riMEDICAL" onclick="selectNewIncident('riMEDICAL')" class="button" type="button">MEDICAL</button>
+                    <button id="riLOST" onclick="selectNewIncident('riLOST')" class="button" type="button">LOST CHILD</button>
+                    <button id="riTECH" onclick="selectNewIncident('riTECH')" class="button" type="button">TECHNICAL</button>
+    
+                </div>
+    
+                <div id="incidentContextContainer">
+    
+                    <textarea id="reportIncidentMsgInput" required type="text" rows="5" cols="75" placeholder="Further information.. Location, persons involved, urgency, etc.."></textarea>
+                    <button id="reportIncidentSubmit" class="button" type="button" onclick="submitNewIncidentReport()">Submit Incident</button>
+    
+                </div>
+    
+            </div>
+    
+            <div id="incidentLogFeed"></div>
+    
+        </div>
+            
+    </div>
+
+
+
+
+
 
     <div id="footerSpace"></div>
     <div id="footer">
@@ -123,11 +187,12 @@
         <p style="font-size:10px;color:lightgrey;"><b><span id="CRsiteTitle"></span> ©<span id="CRYear"></span></b></p>
             <script src="scripts/tempDev.js"></script>
             <script src="scripts/global.js"></script>
+            <script src="scripts/headCounter_settings.js"></script>
     </div>
 
 
 
-
+</div>
 </div>
 </body>
 

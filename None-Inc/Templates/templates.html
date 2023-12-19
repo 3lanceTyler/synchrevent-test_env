@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synchrevent > Templates</title>
+    <link rel="icon" type="image/png" size="16x16" href="../../favicon.ico.png" />
+
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+
+</head>
+
+
+
+<body>
+
+<div class="">
+<h1>Header 1</h1>
+<h2>Header 2</h2>
+<h3>Header 3</h3>
+<h4>Header 4</h4>
+
+<p>- Paragraph - <br />
+    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+<br />- Paragraph -
+</p>
+
+<a href="#">Link</a>
+<br /><br />
+</div>
+
+
+<!-- HEADER -->
+<header>
+    <img src="../../favicon.ico.png" alt="Synchrevent Logo" id="logo">
+    <div>
+      <h2 id="site-name">Synchrevent</h2>
+      <p id="site-quote">Your quote goes here</p>
+    </div>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+  </nav>
+
+</header>
+
+
+
+<br />
+<!-- SUB-MENUS -->
+<div id="sub-menu">
+<nav>
+    <a href="#">Head Counter</a>
+    <a href="#">Incidents</a>
+    <a href="#">Event Info</a>
+    <a href="#">Notifications</a>
+    <a href="#">Assignments</a>
+    <a href="#">Requests</a>
+    <a href="#">Chat</a>
+</nav>
+</div>
+
+
+
+<br />
+<!-- FOOTER -->
+<footer>
+    <div>
+    <img src="../../favicon.ico.png" alt="Synchrevent Logo" id="logo">
+    <div>
+        <h2 id="site-name">Synchrevent</h2>
+        <p id="site-quote">Your quote goes here</p>
+    </div>
+    </div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+    </nav>
+</footer>
+
+
+
+
+
+<br />
+<!-- CUSTOM BRAND FOOTER -->
+<div>
+CUSTOM BRAND FOOTER
+</div>
+
+
+
+<br />
+<!-- CUSTOM BRAND HEADER -->
+<div>
+CUSTOM BRAND HEADER
+</div>  
+
+
+
+
+<br />
+<!-- ERROR -->
+<div id="error-popup">
+    <h1>Error <span id="error-code">000</span>:</h1>
+    <p id="error-msg">Error Message</p>
+</div>
+
+
+<br />
+<!-- NOTCIE -->
+<div id="SetDynamicallyWhenPost" class="notice-popup success">
+    <h1 id="notice-type" class="success">Success</h1>
+    <p id="notice-msg">Notice Message</p>
+    <span onclick="closeNoti(this)" class="material-symbols-outlined cls-btn">close</span>
+</div>
+<div id="SetDynamicallyWhenPost1" class="notice-popup warning">
+    <h1 id="notice-type" class="warning">Warning</h1>
+    <p id="notice-msg">Notice Message</p>
+    <span onclick="closeNoti(this)" class="material-symbols-outlined cls-btn">close</span>
+</div>
+<div id="SetDynamicallyWhenPost2" class="notice-popup fail">
+    <h1 id="notice-type" class="fail">Failure</h1>
+    <p id="notice-msg">Notice Message</p>
+    <span onclick="closeNoti(this)" class="material-symbols-outlined cls-btn">close</span>
+</div>
+<div id="SetDynamicallyWhenPost3" class="notice-popup info">
+    <h1 id="notice-type" class="info">Info</h1>
+    <p id="notice-msg">Notice Message</p>
+    <span onclick="closeNoti(this)" class="material-symbols-outlined cls-btn">close</span>
+</div>
+<div id="SetDynamicallyWhenPost4" class="notice-popup general">
+    <h1 id="notice-type" class="general">General</h1>
+    <p id="notice-msg">Notice Message</p>
+    <span onclick="closeNoti(this)" class="material-symbols-outlined cls-btn">close</span>
+</div>
+
+
+
+
+
+
+<br />
+<!-- TEXT INPUT -->
+<div class="txt-inp-cont">
+<h2 class="txt-inp-title">Input Title</h2>
+<textarea class="txt-inp-box"></textarea>
+<button class="btn general" type="button" onClick="">Submit</button>
+</div>
+
+
+<br />
+<!-- SMALL TEXT INPUT -->
+<div class="s-txt-inp-cont">
+<h2 class="s-txt-inp-title">Input Title</h2>
+<textarea class="s-txt-inp-box"></textarea>
+<button class="btn general" type="button" onClick="">Submit</button>
+
+</div>
+
+
+
+
+
+<br />
+<!-- BUTTONS -->
+<div style="display: flex; justify-content: space-around; width: 85%; margin: 5px auto;">
+    <button class="btn" type="button" onclick="">Button (No Class)</button>
+    <button class="btn success" type="button" onclick="">Button (Success)</button>
+    <button class="btn warning" type="button" onclick="">Button (Warning)</button>
+    <button class="btn fail" type="button" onclick="">Button (Fail)</button>
+    <button class="btn info" type="button" onclick="">Button (Info)</button>
+    <button class="btn general" type="button" onclick="">Button (General)</button>
+</div>
+<div style="display: flex; justify-content: space-around; width: 85%; margin: 5px auto;">
+    <button class="btn-hol" type="button" onclick="">Button (No Class)</button>
+    <button class="btn-hol success" type="button" onclick="">Button (Success)</button>
+    <button class="btn-hol warning" type="button" onclick="">Button (Warning)</button>
+    <button class="btn-hol fail" type="button" onclick="">Button (Fail)</button>
+    <button class="btn-hol info" type="button" onclick="">Button (Info)</button>
+    <button class="btn-hol general" type="button" onclick="">Button (General)</button>
+</div>
+<div style="display: flex; justify-content: space-around; width: 85%; margin: 5px auto;">
+    <button class="btn-rnd" type="button" onclick="">Button (No Class)</button>
+    <button class="btn-rnd success" type="button" onclick="">Button (Success)</button>
+    <button class="btn-rnd warning" type="button" onclick="">Button (Warning)</button>
+    <button class="btn-rnd fail" type="button" onclick="">Button (Fail)</button>
+    <button class="btn-rnd info" type="button" onclick="">Button (Info)</button>
+    <button class="btn-rnd general" type="button" onclick="">Button (General)</button>
+</div>
+<div style="display: flex; justify-content: space-around; width: 85%; margin: 5px auto;">
+    <button class="btn-rnd-hol" type="button" onclick="">Button (No Class)</button>
+    <button class="btn-rnd-hol success" type="button" onclick="">Button (Success)</button>
+    <button class="btn-rnd-hol warning" type="button" onclick="">Button (Warning)</button>
+    <button class="btn-rnd-hol fail" type="button" onclick="">Button (Fail)</button>
+    <button class="btn-rnd-hol info" type="button" onclick="">Button (Info)</button>
+    <button class="btn-rnd-hol general" type="button" onclick="">Button (General)</button>
+</div>
+
+
+<br />
+<!-- BADGE -->
+<div>
+BADGE
+</div>
+
+
+<br />
+<!-- BANNER -->
+<div>
+BANNER
+</div>
+
+
+<br />
+<!-- PROGRESS BAR -->
+<div>
+PROGRESS BAR
+</div>
+
+
+<br />
+<!--SWITCH  -->
+<div>
+SWITCH
+</div>
+
+
+<br />
+<!-- MODAL -->
+<div>
+MODAL
+</div>
+
+
+
+
+
+
+<br />
+<!-- LOGIN -->
+<div>
+LOGIN
+</div>
+
+
+<br />
+<!-- ACCESS CODE -->
+<div>
+ACCESS CODE
+</div>
+
+
+<br />
+<!-- USER PROFILE -->
+<div>
+USER PROFILE
+</div>
+
+
+<br />
+<!-- USER EVENT LIST -->
+<div>
+USER EVENT LIST
+</div>
+
+
+
+
+
+
+<br />
+<!-- HEAD COUNTER -->
+<div>
+HEAD COUNTER FEATURE
+</div>
+
+
+<br />
+<!-- INCIDENT REPORTING -->
+<div>
+INCIDENT REPORTING FEATURE
+</div>
+
+
+<br />
+<!-- INFORMATION BOARD -->
+<div>
+INFORMATION BOARD FEATURE
+</div>
+
+
+<br />
+<!-- NOTIFICATION BOARD -->
+<div>
+NOTIFICATION BOARD FEATURE
+</div>
+
+
+<br />
+<!-- ASSIGNMENTS -->
+<div>
+ASSIGNMENTS FEATURE
+</div>
+
+
+<br />
+<!-- REQUESTS -->
+<div>
+REQUESTS FEATURE
+</div>
+
+
+<br />
+<!-- CHAT -->
+<div>
+CHAT FEATURE
+</div>
+
+
+<br />
+<!-- ONLINE STATS -->
+<div>
+ONLINE STATS FEATURE
+</div>
+
+
+<br />
+<!-- SETTINGS (LOOSE) CONTAINER -->
+<div>
+SETTINGS (LOOSE) FEATURE
+</div>
+
+
+
+
+<script src="js/templates.js"></script>
+
+</body>
+
+</html>

@@ -380,10 +380,10 @@ body {
 }
 
 @media (prefers-color-scheme:dark){
-body{
-color: var(--shade-w)!important;
-background: var(--shade-lg)!important;
-}
+    body{
+    color: var(--shade-w)!important;
+    background: var(--shade-lg)!important;
+    }
 }
 
 button {
@@ -431,11 +431,12 @@ footer {
     border-radius: 0px 0px 20px 20px;
 }
 
-footer > div {
+footer div {
     display: flex;
 }
 
-footer > div > div {
+footer div div {
+    display: block;
     padding-left: 20px;
 }
 
@@ -481,8 +482,8 @@ nav a:active {
 }
 
 
-@media (max-width: 768px) {
-    footer > #logo, footer > #site-quote {
+@media (max-width: 850px) {
+    footer #logo, footer #site-quote {
       display: none;
     }
     
@@ -495,26 +496,30 @@ nav a:active {
       margin-top: 15px;
     }
 
-    footer > nav {
-        display: block;
+    footer nav {
+        display: flex;
+        flex-wrap: wrap;
     }
 
-    footer > nav > a {
-        margin: 0 35%;
+    footer nav a {
+        flex: 100%;
+        margin: 2px 20%;
     }
 
-    footer > div {
+    footer div {
         display: block;
     }
 }
 
 @media (max-width: 450px) {
-    header > nav {
-        display: block;
+    header nav {
+        display: flex;
+        flex-wrap: wrap;
     }
 
-    header > nav > a {
-        margin: 0 35%;
+    header nav a {
+        flex: 100%;
+        margin: 2px 20%;
     }
 }
 
@@ -522,7 +527,7 @@ nav a:active {
 /* SUB-MENUS */
 
 
-#sub-menu > nav {
+#sub-menu nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -532,19 +537,18 @@ nav a:active {
     box-shadow: var(--shad-4);
 }
 
-@media (max-width: 900px) {
-    #sub-menu > nav > a {
+@media (max-width: 850px) {
+    #sub-menu nav {
+        padding: 0px 10px;
+    }
+    #sub-menu nav a {
         flex: 20%;
+        margin: 5px 20%;
     }
 
 }
 
-@media (max-width: 650px) {
-    #sub-menu > nav > a {
-        flex: 50%;
-    }
 
-}
 
 
 /* ERRORS */
@@ -562,13 +566,13 @@ nav a:active {
     box-shadow: var(--shad-2);
 }
 
-#error-popup > h1 {
+#error-popup h1 {
     color: var(--shade-w);
     font-size: 4vw;
     opacity: 0.8;
 }
 
-#error-popup > p {
+#error-popup p {
     color: var(--shade-w);
     margin: 0;
     margin-left: 0.5vw;
@@ -576,12 +580,18 @@ nav a:active {
     opacity: 0.9;
 }
 
+@media (max-width: 650px) {
+    #error-popup {
+        width: 90%;
+    }
+}
+
 @media (max-width: 450px) {
     #error-popup {
         display: block;
     }
 
-    #error-popup > p {
+    #error-popup p {
         text-align: left;
         font-size: 2vw;
         margin-left: 0;
@@ -606,7 +616,7 @@ nav a:active {
     box-shadow: var(--shad-noti);
 }
 
-.notice-popup > h1 {
+.notice-popup h1 {
     padding: 5px;
     border-style: solid;
     border-width: 3px;
@@ -616,14 +626,14 @@ nav a:active {
     opacity: 1;
 }
 
-.notice-popup > p {
+.notice-popup p {
     font-size: 2vw;
     opacity: 1;
     font-weight: bold;
     margin: 0;
 }
 
-.notice-popup > .cls-btn {
+.notice-popup .cls-btn {
     margin-left: auto;
     transform: scale(1.3);
 }
@@ -658,8 +668,11 @@ nav a:active {
     color: var(--shade-w);
 }
 
-@media (max-width: 600px) {
-    .notice-popup > .cls-btn {
+@media (max-width: 650px) {
+    .notice-popup {
+        width: 90%;
+    }
+    .notice-popup .cls-btn {
         transform: scale(0.8);
     }
 }
@@ -678,7 +691,7 @@ nav a:active {
     border-bottom-left-radius: 10px;
     margin: 2px auto;
     padding-bottom: 5px;
-    width: 50%;
+    width: 75%;
     opacity: 1;
     border-style: solid;
     border-width: 2px;
@@ -753,6 +766,24 @@ nav a:active {
 .s-txt-inp-box button {
     max-width: 9%;
     margin-left: 15px;
+}
+
+@media (max-width: 650px) {
+    .s-txt-inp-cont {
+        width: 50%;
+    }
+    .txt-inp-cont {
+        width: 90%;
+    }
+}
+
+@media (max-width: 450px) {
+    .s-txt-inp-cont {
+        width: 75%;
+    }
+    .s-txt-inp-title {
+        font-size: 2.2vw;
+    }
 }
 
 

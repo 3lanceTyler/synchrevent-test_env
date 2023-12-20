@@ -9,7 +9,7 @@
     <title>Synchrevent > Templates</title>
     <link rel="icon" type="image/png" size="16x16" href="../../favicon.ico.png" />
 
-    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/templates.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
 
 </head>
@@ -32,7 +32,7 @@
 <br />- Paragraph -
 </p>
 
-<a href="#">Link</a>
+<p><a href="#">Link</a> - <em>Emphasis</em> - <span class="hl-g">Highlight G</span> - <span class="hl-r">Highlight R</span> - <span class="hl-y">Highlight Y</span></p>
 <br /><br />
 </div>
 
@@ -43,7 +43,7 @@
     <img src="../../favicon.ico.png" alt="Synchrevent Logo" id="logo">
     <div>
       <h2 id="site-name">Synchrevent</h2>
-      <p id="site-quote">Your quote goes here</p>
+      <p id="site-quote">Synchronising Your Events!</p>
     </div>
 
   <nav>
@@ -79,7 +79,7 @@
     <img src="../../favicon.ico.png" alt="Synchrevent Logo" id="logo">
     <div>
         <h2 id="site-name">Synchrevent</h2>
-        <p id="site-quote">Your quote goes here</p>
+        <p id="site-quote">Synchronising Your Events!</p>
     </div>
     </div>
 
@@ -161,7 +161,7 @@ CUSTOM BRAND HEADER
 <div class="txt-inp-cont">
 <h2 class="txt-inp-title">Input Title</h2>
 <textarea class="txt-inp-box"></textarea>
-<button class="btn general" type="button" onClick="">Submit</button>
+<button class="btn-rnd general" type="button" onClick="">Submit</button>
 </div>
 
 
@@ -170,7 +170,7 @@ CUSTOM BRAND HEADER
 <div class="s-txt-inp-cont">
 <h2 class="s-txt-inp-title">Input Title</h2>
 <textarea class="s-txt-inp-box"></textarea>
-<button class="btn general" type="button" onClick="">Submit</button>
+<button class="btn-rnd-hol general" type="button" onClick="">Submit</button>
 
 </div>
 
@@ -213,6 +213,14 @@ CUSTOM BRAND HEADER
     <button class="btn-rnd-hol info" type="button" onclick="">Button (Info)</button>
     <button class="btn-rnd-hol general" type="button" onclick="">Button (General)</button>
 </div>
+<div style="display: flex; justify-content: space-around; width: 85%; margin: 5px auto;">
+    <button class="btn material-symbols-outlined" type="button" onclick="">Star_Half</button>
+    <button class="btn-rnd success material-symbols-outlined" type="button" onclick="">Done</button>
+    <button class="btn-hol warning material-symbols-outlined" type="button" onclick="">Warning</button>
+    <button class="btn-rnd-hol fail material-symbols-outlined" type="button" onclick="">Cancel</button>
+    <button class="btn-rnd info material-symbols-outlined" type="button" onclick="">Info</button>
+    <button class="btn-hol general material-symbols-outlined" type="button" onclick="">Lightbulb</button>
+</div>
 
 
 <br />
@@ -226,8 +234,29 @@ BADGE
 <br />
 <h2 class="temptitle">Banners</h2>
 <!-- BANNER -->
-<div>
-BANNER
+<div id="" class="banner-popup">
+    <h1 id="" class="material-symbols-outlined banner-badge ">Star_Half</h1>
+    <p class="banner-msg">No Class</p>
+</div>
+<div id="" class="banner-popup success">
+    <h1 id="" class="material-symbols-outlined banner-badge  success">Done</h1>
+    <p class="banner-msg">Success</p>
+</div>
+<div id="" class="banner-popup warning">
+    <h1 id="" class="material-symbols-outlined banner-badge  warning">Warning</h1>
+    <p class="banner-msg">Warning</p>
+</div>
+<div id="" class="banner-popup fail">
+    <h1 id="" class="material-symbols-outlined banner-badge  fail">Cancel</h1>
+    <p class="banner-msg">Fail</p>
+</div>
+<div id="" class="banner-popup info">
+    <h1 id="" class="material-symbols-outlined banner-badge  info">Info</h1>
+    <p class="banner-msg">Information</p>
+</div>
+<div id="" class="banner-popup general">
+    <h1 id="" class="material-symbols-outlined banner-badge  general">Lightbulb</h1>
+    <p class="banner-msg">General</p>
 </div>
 
 
@@ -242,35 +271,94 @@ PROGRESS BAR
 <br />
 <h2 class="temptitle">Switches</h2>
 <!--SWITCH  -->
-<div>
-SWITCH
+<div style="display: flex; justify-content: space-around; width: 85%; margin: 5px auto;">
+    <label class="switch">
+        <input class="" type="checkbox" onclick="">
+        <span class="slider round"> </span>
+    </label>
+    <label class="switch">
+        <input class="" type="checkbox" onclick="">
+        <span class="slider round success"> </span>
+    </label>
+    <label class="switch">
+        <input class="" type="checkbox" onclick="">
+        <span class="slider round warning"> </span>
+    </label>
+    <label class="switch">
+        <input class="" type="checkbox" onclick="">
+        <span class="slider round fail"> </span>
+    </label>
+    <label class="switch">
+        <input class="" type="checkbox" onclick="">
+        <span class="slider round info"> </span>
+    </label>
+    <label class="switch">
+        <input class="" type="checkbox" onclick="">
+        <span class="slider round general"> </span>
+    </label>
+</div>
+<div style="display: flex; justify-content: space-around; width: 85%; margin: 5px auto;">
+    <label class="switch">
+        <input class="" type="checkbox" onclick="">
+        <span class="slider"> </span>
+    </label>
+    <label class="switch">
+        <input class="" type="checkbox" onclick="">
+        <span class="slider success"> </span>
+    </label>
+    <label class="switch">
+        <input class="" type="checkbox" onclick="">
+        <span class="slider warning"> </span>
+    </label>
+    <label class="switch">
+        <input class="" type="checkbox" onclick="">
+        <span class="slider fail"> </span>
+    </label>
+    <label class="switch">
+        <input class="" type="checkbox" onclick="">
+        <span class="slider info"> </span>
+    </label>
+    <label class="switch">
+        <input class="" type="checkbox" onclick="">
+        <span class="slider general"> </span>
+    </label>
 </div>
 
 
 
 <br />
 <h2 class="temptitle">Maintenance</h2>
-<!--SWITCH  -->
-<div>
-MAINTENANCE
+<!--MAINTENANCE (REMOVE INLINE STYLING) -->
+<div id="maintenanceModeContainer" style="height:auto; position:relative; display: flex">
+    <div>
+    <h1 id="maintenanceTitle">TITLE</h1>
+    <h2 id="maintenanceSubtitle">SUBTITLE</h2>
+    <h4 id="maintenanceLittletittle">MESSAGE</h4>
+    </div>
 </div>
 
 
 
 <br />
 <h2 class="temptitle">Site Down Message</h2>
-<!--SWITCH  -->
+<!--SITE DOWN MSG  -->
 <div>
-SITE DOWN MESSAGE
+SITE DOWN MSG
 </div>
 
 
 
 <br />
 <h2 class="temptitle">404</h2>
-<!--SWITCH  -->
-<div>
-404
+<!--404 (REMOVE INLINE STYLING) -->
+<div id="notFoundContainer" style="height:auto; position:relative">
+
+    <div>
+    <h1>404<br />Page Not Found!</h1>
+    <h2>In other words, the page you're looking for does not exist!</h2>
+    <h4>If you typed the URL, double check it and make sure its correct. If you were direct here from somewhere else, try going back or returning to the home page.</h4>
+    </div>
+
 </div>
 
 

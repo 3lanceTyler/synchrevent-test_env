@@ -25,23 +25,7 @@
 
 
 
-#titleBarContainer {
-    max-height: 30px;
-}
 
-#eventName {
-    float: left;
-    width: 50%;
-    margin-left: 25%;
-}
-
-#helloUser {
-    float: right;
-    text-align: right;
-    margin-right: 10px;
-    margin-bottom: 0;
-    line-height: 3vw;
-}
 
 
 #mainInfoDisplay {

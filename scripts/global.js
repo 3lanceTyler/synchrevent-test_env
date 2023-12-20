@@ -1,4 +1,4 @@
-const maintenance = true;
+const maintenance = false;
 
 function maintenanceMode (modeToggle) {
     if (modeToggle) {

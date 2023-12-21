@@ -27,18 +27,20 @@
 <h5>Header 5</h5>
 <h6>Header 6</h6>
 
+<div style="text-align: center;">
 <p>- Paragraph - <br />
     Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
 <br />- Paragraph -
 </p>
 
 <p><a href="#">Link</a> - <em>Emphasis</em> - <span class="hl-g">Highlight G</span> - <span class="hl-r">Highlight R</span> - <span class="hl-y">Highlight Y</span></p>
+</div>
 <br /><br />
 </div>
 
 
 <!-- HEADER -->
-<h2 class="temptitle"> Header / Footer / Navs</h2>
+<h2 class="temptitle"> Header / Navigation / Footer </h2>
 <header>
     <img src="../../favicon.ico.png" alt="Synchrevent Logo" id="logo">
     <div>
@@ -88,6 +90,7 @@
       <a href="#">About</a>
       <a href="#">Services</a>
     </nav>
+    <span id="CRinfo">Synchrevent ©2023</span>
 </footer>
 
 
@@ -226,8 +229,13 @@ CUSTOM BRAND HEADER
 <br />
 <h2 class="temptitle">Badges</h2>
 <!-- BADGE -->
-<div>
-BADGE
+<div style="display: flex; justify-content: space-around; width: 85%; margin: 5px auto;">
+<span class="badge">BADGE</span>
+<span class="badge round success">SUCCESS</span>
+<span class="badge warning">WARNING</span>
+<span class="badge fail">FAIL</span>
+<span class="badge round info">INFO</span>
+<span class="badge round general">GENERAL</span> 
 </div>
 
 
@@ -263,8 +271,24 @@ BADGE
 <br />
 <h2 class="temptitle">Progress Bars</h2>
 <!-- PROGRESS BAR -->
-<div>
-PROGRESS BAR
+<div style="width: 85%; margin: 5px auto;">
+
+    <div class="bar-out round success">
+        <div class="bar-in success" style="width: 5%;">5%</div>
+    </div>
+    <div class="bar-out round warning">
+        <div class="bar-in warning" style="width: 25%;">25%</div>
+    </div>
+    <div class="bar-out fail">
+        <div class="bar-in fail" style="width: 50%;"></div>
+    </div>
+    <div class="bar-out round info">
+        <div class="bar-in info" style="width: 75%;">Progress (75%)</div>
+    </div>
+    <div class="bar-out general">
+        <div class="bar-in general" style="width: 100%;">100%</div>
+    </div>
+
 </div>
 
 
@@ -327,7 +351,7 @@ PROGRESS BAR
 
 
 <br />
-<h2 class="temptitle">Maintenance</h2>
+<h2 class="temptitle">Maintenance (fixed)</h2>
 <!--MAINTENANCE (REMOVE INLINE STYLING) -->
 <div id="maintenanceModeContainer" style="height:auto; position:relative; display: flex">
     <div>
@@ -340,10 +364,14 @@ PROGRESS BAR
 
 
 <br />
-<h2 class="temptitle">Site Down Message</h2>
-<!--SITE DOWN MSG  -->
-<div>
-SITE DOWN MSG
+<h2 class="temptitle">Site Down Message (customisable)</h2>
+<!--SITE DOWN MSG (REMOVE INLINE STYLING) -->
+<div class="success" id="sitedownModeContainer" style="height:auto; position:relative; display: flex">
+    <div>
+    <h1 id="sitedownTitle">TITLE</h1>
+    <h2 id="sitedownSubtitle">SUBTITLE</h2>
+    <h4 id="sitedownLittletittle">(success | warning | fail | info | general) can be used to style.</h4>
+    </div>
 </div>
 
 

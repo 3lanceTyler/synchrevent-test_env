@@ -457,6 +457,7 @@ header, footer {
     padding: 20px;
     text-align: center;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     box-shadow: var(--shad-4);
@@ -518,6 +519,11 @@ nav a:hover {
 nav a:active {
     background-color: var(--col-o);
     transition: 0s;
+}
+
+#CRinfo {
+    flex-basis: 100%;
+    font-size: 1vw;
 }
 
 
@@ -883,6 +889,14 @@ nav a:active {
 }
 
 /* BADGES */
+.badge {
+    padding: 5px 15px;
+    border-style: solid;
+    border-width: 2px;
+    background-color: rgb(0, 0, 0, 0)!important;
+    color: var(--col-prim)!important;
+    font-weight: bold;
+}
 
 /* BANNERS */
 .banner-popup {
@@ -917,6 +931,31 @@ nav a:active {
 }
 
 /* PROGRESS BARS */
+.bar-out {
+    height: 2vw;
+    width: 96%;
+    margin: 2px auto;
+    border-style: solid;
+    border-width: 2px;
+    background-color: rgb(0, 0, 0, 0)!important;
+    box-shadow: var(--shad-2l) inset;
+}
+
+.bar-in {
+    height: 100%;
+    width: 0;
+    text-align: center;
+    border-radius: inherit;
+    display: flexbox;
+    align-items: center;
+    box-shadow: var(--shad-2);
+    font-size: 1.6vw;
+    overflow: hidden;
+}
+
+.round {
+    border-radius: 10px;
+}
 
 /* SWITCHES */
 .switch {
@@ -1025,6 +1064,47 @@ nav a:active {
 }
 
 /* SITE DOWN MESSAGE */
+#sitedownModeContainer h1 {
+    font-size: 50px;
+    color: inherit;
+    margin: 25px auto;
+}
+
+#sitedownModeContainer h2 {
+    text-align: center;
+    padding: 0 30px;
+    color: inherit;
+}
+
+#sitedownModeContainer h4 {
+    text-align: center;
+    padding: 0 50px;
+    color: inherit;
+}
+
+#sitedownModeContainer div {
+    background-color:  rgba(200, 200, 200, 0.2);
+    border-color:  inherit;
+    border-width: 1px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    width: 100%;
+    color: inherit;
+    
+}
+
+#sitedownModeContainer {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: auto;
+    z-index: 1000; 
+}
 
 /* 404 */
 #notFoundContainer h1 {
